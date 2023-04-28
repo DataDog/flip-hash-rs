@@ -1,0 +1,24 @@
+[package]
+name = "flip_hash"
+version = "0.1.0"
+edition = "2021"
+authors = ["Charles Masson <charles@datadog.com>"]
+
+[features]
+xxh3 = ["xxhash-rust"]
+
+[dependencies]
+xxhash-rust = { version = "0.8.6", optional = true, default-features = false, features = ["const_xxh3", "xxh3"] }
+
+[dev-dependencies]
+itertools = { version = "0.10.5" }
+num-traits = { version = "0.2.15" }
+ordered-float = { version = "3.7.0" }
+proptest = { version = "1.1.0" }
+proptest-derive = { version = "0.3.0" }
+rand = { version = "0.8.5" , features = ["std_rng"] }
+statrs = { version = "0.16.0" }
+test-case = { version = "3.1.0" }
+
+[workspace]
+exclude = [ "./benchmarks" ]
